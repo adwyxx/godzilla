@@ -11,12 +11,16 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>godzilla</groupId>
+    <groupId>com.adwyxx.godzilla</groupId>
     <artifactId>godzilla</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>register</module>
+        <module>godzilla-register</module>
+        <module>godzilla-common</module>
+        <module>godzilla-gateway</module>
+        <module>godzilla-oauth</module>
+        <module>godzilla-ordering</module>
     </modules>
 
     <properties>

@@ -6,8 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="godzilla-common" />
+        <module name="godzilla-gateway" />
+        <module name="godzilla-oauth" />
+        <module name="godzilla-ordering" />
+        <module name="godzilla-register" />
         <module name="register" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="godzilla" target="1.8" />
+      <module name="godzilla-common" target="1.8" />
+      <module name="godzilla-gateway" target="1.8" />
+      <module name="godzilla-oauth" target="1.8" />
+      <module name="godzilla-ordering" target="1.8" />
+      <module name="godzilla-register" target="1.8" />
+      <module name="register" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

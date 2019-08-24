@@ -1,0 +1,23 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: godzilla-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    openapi:
+      path: /openapi/**
+      service-id: godzilla-openapi
+    oauth:
+      path: /oauth/**
+      service-id: godzilla-oauth
+    ordering:
+          path: /ordering/**
+          service-id: godzilla-ordering
