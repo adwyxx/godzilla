@@ -1,0 +1,422 @@
+{
+  "RootName": "DataModels",
+  "CTVER": "43543231",
+  "TableCount": 6,
+  "Count": 3,
+  "items": [
+    {
+      "ID": 1,
+      "Name": "godzilla_oauth",
+      "CreateDate": "2019/9/23 14:48:25",
+      "OrderNo": 1,
+      "ConfigStr": "DrawerWidth=1500\r\nDrawerHeight=2880\r\nWorkAreaColor=16777215\r\nSelectedColor=-16777203\r\nDefaultObjectColor=15921906\r\nDefaultTitleColor=255\r\nDefaultPKColor=16711935\r\nDefaultFKColor=16711680\r\nDefaultBorderColor=12632256\r\nDefaultLineColor=16711680\r\nShowFieldType=1\r\nShowFieldIcon=1\r\nShowPhyFieldName=1\r\nDatabaseEngine=\r\nGenFKIndexesSQL=0\r\n",
+      "Tables": {
+        "Count": 6,
+        "items": [
+          {
+            "ID": 1,
+            "Name": "ums_user",
+            "Caption": "ums_user",
+            "Memo": "系统用户",
+            "CreateDate": "2019/9/23 14:50:33",
+            "OrderNo": 1,
+            "GraphDesc": "Left=174.00\r\nTop=55.00",
+            "MetaFields": {
+              "Count": 10,
+              "items": [
+                {
+                  "ID": 2,
+                  "Name": "id",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 1,
+                  "DisplayName": "id",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                },
+                {
+                  "ID": 4,
+                  "Name": "login_name",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 2,
+                  "DisplayName": "登录名",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 5,
+                  "Name": "nick_name",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 3,
+                  "DisplayName": "昵称",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 6,
+                  "Name": "mobile",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 4,
+                  "DisplayName": "手机号",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 12,
+                  "Name": "email",
+                  "CreateDate": "2019/9/23 14:52:16",
+                  "OrderNo": 5,
+                  "DisplayName": "电子邮箱",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 255
+                },
+                {
+                  "ID": 11,
+                  "Name": "is_locked",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 6,
+                  "DisplayName": "是否被锁定",
+                  "DataType": 5,
+                  "Nullable": true
+                },
+                {
+                  "ID": 7,
+                  "Name": "creator_id",
+                  "Memo": "当前用户ID",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 7,
+                  "DisplayName": "创建人编号",
+                  "DataType": 2
+                },
+                {
+                  "ID": 8,
+                  "Name": "creator",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 8,
+                  "DisplayName": "创建人姓名",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 9,
+                  "Name": "create_date",
+                  "Memo": "默认为当前时间",
+                  "CreateDate": "2019/9/23 14:50:33",
+                  "OrderNo": 9,
+                  "DisplayName": "创建日期",
+                  "DataType": 4,
+                  "DefaultValue": "sysdate",
+                  "Nullable": true
+                },
+                {
+                  "ID": 13,
+                  "Name": "enabled",
+                  "Memo": "0无效 1有效",
+                  "CreateDate": "2019/9/23 14:56:21",
+                  "OrderNo": 10,
+                  "DisplayName": "有效性",
+                  "DataType": 5,
+                  "Nullable": true
+                }
+              ]
+            }
+          },
+          {
+            "ID": 2,
+            "Name": "ums_client",
+            "Caption": "ums_client",
+            "Memo": "客户端程序注册表",
+            "CreateDate": "2019/9/23 15:02:27",
+            "OrderNo": 2,
+            "GraphDesc": "Left=500.00\r\nTop=57.00",
+            "MetaFields": {
+              "Count": 4,
+              "items": [
+                {
+                  "ID": 1,
+                  "Name": "client_id",
+                  "CreateDate": "2019/9/23 15:02:27",
+                  "OrderNo": 1,
+                  "DisplayName": "编号",
+                  "DataType": 1,
+                  "KeyFieldType": 1,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 2,
+                  "Name": "client_name",
+                  "CreateDate": "2019/9/23 15:02:27",
+                  "OrderNo": 2,
+                  "DisplayName": "客户端名称",
+                  "DataType": 1,
+                  "DataLength": 50
+                },
+                {
+                  "ID": 9,
+                  "Name": "create_date",
+                  "Memo": "默认为当前时间",
+                  "CreateDate": "2019/9/23 15:02:27",
+                  "OrderNo": 3,
+                  "DisplayName": "创建日期",
+                  "DataType": 4,
+                  "DefaultValue": "sysdate",
+                  "Nullable": true
+                },
+                {
+                  "ID": 65,
+                  "Name": "enabled",
+                  "Memo": "0无效 1有效",
+                  "CreateDate": "2019/9/23 15:04:55",
+                  "OrderNo": 4,
+                  "DisplayName": "有效性",
+                  "DataType": 5
+                }
+              ]
+            }
+          },
+          {
+            "ID": 3,
+            "Name": "ums_role",
+            "Caption": "ums_role",
+            "CreateDate": "2019/9/23 16:12:19",
+            "OrderNo": 3,
+            "GraphDesc": "Left=168.00\r\nTop=388.00",
+            "MetaFields": {
+              "Count": 7,
+              "items": [
+                {
+                  "ID": 1,
+                  "Name": "id",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 1,
+                  "DisplayName": "编号",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                },
+                {
+                  "ID": 4,
+                  "Name": "role_name",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 2,
+                  "DisplayName": "名称",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 7,
+                  "Name": "creator_id",
+                  "Memo": "当前用户ID",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 3,
+                  "DisplayName": "创建人编号",
+                  "DataType": 2
+                },
+                {
+                  "ID": 8,
+                  "Name": "creator_name",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 4,
+                  "DisplayName": "创建人姓名",
+                  "DataType": 1,
+                  "Nullable": true
+                },
+                {
+                  "ID": 9,
+                  "Name": "create_date",
+                  "Memo": "默认为当前时间",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 5,
+                  "DisplayName": "创建日期",
+                  "DataType": 4,
+                  "DefaultValue": "sysdate",
+                  "Nullable": true
+                },
+                {
+                  "ID": 11,
+                  "Name": "order_no",
+                  "CreateDate": "2019/9/23 16:12:19",
+                  "OrderNo": 6,
+                  "DisplayName": "排序号",
+                  "DataType": 3,
+                  "Nullable": true
+                },
+                {
+                  "ID": 113,
+                  "Name": "enabled",
+                  "Memo": "0无效 1有效",
+                  "CreateDate": "2019/9/23 16:13:55",
+                  "OrderNo": 7,
+                  "DisplayName": "有效",
+                  "DataType": 5,
+                  "DefaultValue": "1",
+                  "Nullable": true
+                }
+              ]
+            }
+          },
+          {
+            "ID": 4,
+            "Name": "usm_user_role",
+            "Caption": "usm_user_role",
+            "Memo": "用户-角色 关系表",
+            "CreateDate": "2019/9/23 16:14:58",
+            "OrderNo": 4,
+            "GraphDesc": "Left=178.00\r\nTop=287.00",
+            "MetaFields": {
+              "Count": 2,
+              "items": [
+                {
+                  "ID": 1,
+                  "Name": "uid",
+                  "CreateDate": "2019/9/23 16:14:58",
+                  "OrderNo": 1,
+                  "DisplayName": "用户ID",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                },
+                {
+                  "ID": 4,
+                  "Name": "rid",
+                  "CreateDate": "2019/9/23 16:14:58",
+                  "OrderNo": 2,
+                  "DisplayName": "角色ID",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                }
+              ]
+            }
+          },
+          {
+            "ID": 5,
+            "Name": "usm_menu",
+            "Caption": "菜单表",
+            "Memo": "菜单字典",
+            "CreateDate": "2019/9/23 16:17:24",
+            "OrderNo": 5,
+            "GraphDesc": "Left=591.00\r\nTop=391.00",
+            "MetaFields": {
+              "Count": 7,
+              "items": [
+                {
+                  "ID": 1,
+                  "Name": "id",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 1,
+                  "DisplayName": "编号",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                },
+                {
+                  "ID": 5,
+                  "Name": "pid",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 2,
+                  "DisplayName": "父编码",
+                  "DataType": 2,
+                  "Nullable": true
+                },
+                {
+                  "ID": 2,
+                  "Name": "menu_name",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 3,
+                  "DisplayName": "菜单名称",
+                  "DataType": 1,
+                  "DataLength": 20
+                },
+                {
+                  "ID": 3,
+                  "Name": "link_url",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 4,
+                  "DisplayName": "连接地址",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 255
+                },
+                {
+                  "ID": 4,
+                  "Name": "icon",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 5,
+                  "DisplayName": "图标",
+                  "DataType": 1,
+                  "Nullable": true,
+                  "DataLength": 50
+                },
+                {
+                  "ID": 11,
+                  "Name": "order_no",
+                  "CreateDate": "2019/9/23 16:17:24",
+                  "OrderNo": 6,
+                  "DisplayName": "排序号",
+                  "DataType": 2
+                },
+                {
+                  "ID": 136,
+                  "Name": "enabled",
+                  "Memo": "0无效 1有效",
+                  "CreateDate": "2019/9/23 16:20:50",
+                  "OrderNo": 7,
+                  "DisplayName": "是否有效",
+                  "DataType": 5
+                }
+              ]
+            }
+          },
+          {
+            "ID": 6,
+            "Name": "ums_role_menu",
+            "Caption": "角色-菜单",
+            "Memo": "角色-菜单关系表",
+            "CreateDate": "2019/9/23 16:22:04",
+            "OrderNo": 6,
+            "GraphDesc": "Left=401.00\r\nTop=392.00",
+            "MetaFields": {
+              "Count": 2,
+              "items": [
+                {
+                  "ID": 1,
+                  "Name": "rid",
+                  "CreateDate": "2019/9/23 16:22:04",
+                  "OrderNo": 1,
+                  "DisplayName": "角色ID",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                },
+                {
+                  "ID": 2,
+                  "Name": "mid",
+                  "CreateDate": "2019/9/23 16:22:04",
+                  "OrderNo": 2,
+                  "DisplayName": "菜单ID",
+                  "DataType": 2,
+                  "KeyFieldType": 1
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ID": 2,
+      "Name": "godzilla_order",
+      "CreateDate": "2019/9/23 14:49:54",
+      "OrderNo": 2,
+      "Tables": {"items": []}
+    },
+    {
+      "ID": 3,
+      "Name": "godzilla_product",
+      "CreateDate": "2019/9/23 14:50:15",
+      "OrderNo": 3,
+      "Tables": {"items": []}
+    }
+  ]
+}

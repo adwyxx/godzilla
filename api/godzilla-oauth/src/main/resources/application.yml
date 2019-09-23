@@ -1,11 +1,47 @@
 server:
   port: 8763
 
-spring:
-  application:
-    name: godzilla-oauth
-
+#Eureka
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+#Spring
+spring:
+  application:
+    name: godzilla-oauth
+  datasource: #数据库连接
+    url:jdbc:mysql://127.0.0.1:3306/auth_db?characterEncoding=utf8&useUnicode=true&verifyServerCertificate=false&useSSL=false&requireSSL=false&serverTimezone=UTC
+    username:root
+    password:123
+    type:com.alibaba.druid.pool.DruidDataSource
+    driver-class-name:com.mysql.cj.jdbc.Driver
+    max-active:20
+    max-idle:8
+    min-idle:8
+    initial-size:10
+    minEvictable-idle-time-millis:40000
+    filters:stat,wall,log4j
+  http:
+    encoding:
+      enabled:true
+      charset:UTF-8
+      force:true
+  redis: #Redis配置，单机模式
+    host:127.0.0.1 #配置集群时需要注释掉host属性
+    port:6379
+    password:123
+    #sentinel: #redis集群配置
+    #  master:mymaster
+    #  nodes=192.168.3.15:6380,1192.168.3.15:6381,192.168.3.15:6382
+#mybatis mapper xml文件路径配置
+mybatis:
+  mapper-locations:
+    classpath:com.adwyxx.oauth.mapper/*.xml
+  type-aliases-package:com.adwyxx.oauth.model #mybatis mapper对应的实体包名配置
+
+#Druid后台用户名密码
+druid:
+  login-username:admin
+  login-password:123
