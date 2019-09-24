@@ -18,8 +18,13 @@ import java.util.concurrent.TimeUnit;
  * @Author: Leo.Wang
  * @Email: adwyxx@qq.com
  * @Date: 2019-09-23 17:09
- * 参考：https://blog.csdn.net/forezp/article/details/68957681
- * https://www.jianshu.com/p/f612339d3171
+ * 应用：
+ * @Autowired
+ * RedisDistributedLock lock;
+ * if(lock.tryLock("lock key","lock value"){
+ * 	do something ...
+ * 	lock.unlock("lock");
+ * }
  */
 @Component
 public class RedisDistributedLock {
@@ -31,35 +36,88 @@ public class RedisDistributedLock {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    public boolean lock()
+    /**
+     * @description: 尝试获取锁
+     * @author: Leo.Wang
+     * @date: 2019/9/24 9:50
+     * @param key: 锁名称
+     * @param value: 锁对应的值
+     * @return boolean: 是否获取到锁
+     */
+    public boolean tryLock(String key,String value){
+        return getLock(key,value,LOCK_TRY_TIMEOUT,LOCK_TRY_INTERVAL,LOCK_EXPIRE);
+    }
+
+    /**
+     * @description: 尝试获取锁
+     * @author: Leo.Wang
+     * @date: 2019/9/24 9:50
+     * @param key: 锁名称
+     * @param value: 锁对应的值
+     * @param timeout:获取锁超时时间，单位：微妙
+     * @return boolean: 是否获取到锁
+     */
+    public boolean tryLock(String key,String value,long timeout)
     {
-
-        return false;
+        return getLock(key,value,timeout,LOCK_TRY_INTERVAL,LOCK_EXPIRE);
     }
 
-    public boolean tryLock(){
-        return false;
+    /**
+     * @description: 尝试获取锁
+     * @author: Leo.Wang
+     * @date: 2019/9/24 9:50
+     * @param key: 锁名称
+     * @param value: 锁对应的值
+     * @param timeout:获取锁超时时间，单位：微妙
+     * @param tryInterval:多少ms尝试一次，单位：微妙
+     * @return boolean: 是否获取到锁
+     */
+    public boolean tryLock(String key,String value,long timeout,long tryInterval){
+        return getLock(key,value,timeout,tryInterval,LOCK_EXPIRE);
     }
 
-    public void unlock(){
+    /**
+     * @description: 尝试获取锁
+     * @author: Leo.Wang
+     * @date: 2019/9/24 9:50
+     * @param key: 锁名称
+     * @param value: 锁对应的值
+     * @param timeout:获取锁超时时间，单位：微妙
+     * @param tryInterval:多少ms尝试一次，单位：微妙
+     * @param expires:锁超时时间，单位：微妙
+     * @return boolean: 是否获取到锁
+     */
+    public boolean tryLock(String key,String value,long timeout,long tryInterval,long expires){
+        return getLock(key,value,timeout,LOCK_TRY_INTERVAL,expires);
+    }
 
-
+    /**
+     * @description: 释放锁
+     * @author: Leo.Wang
+     * @date: 2019/9/24 9:48
+     * @param key: 锁名称
+     */
+    public void unlock(String key){
+        if(!StringUtils.isEmpty(key)){
+            redisTemplate.delete(key);
+        }
     }
 
     /**
      * @description: 获取分布式锁
      * @author: Leo.Wang
      * @date: 2019/9/23 23:08
-     * @param lock: 锁信息
+     * @param key: 键
+     * @param value: 键值
      * @param timeout: 超时时间
      * @param tryInterval: 尝试获取锁的时间间隔
      * @param lockExpireTime : 锁失效时间
      * @return boolean: 是否成功获取锁
      */
-    public boolean getLock(RedisLock lock,long timeout,long tryInterval,long lockExpireTime)
+    public boolean getLock(String key,String value,long timeout,long tryInterval,long lockExpireTime)
     {
         try{
-           if(lock == null || StringUtils.isEmpty(lock.getKey()) || StringUtils.isEmpty(lock.getValue())){
+           if(StringUtils.isEmpty(key) || StringUtils.isEmpty(value)){
                return false;
             }
 
@@ -67,24 +125,24 @@ public class RedisDistributedLock {
             ValueOperations<String,String> opts = null;
             do{
                 //锁存在
-                if(redisTemplate.hasKey(lock.getKey())){
+                if(redisTemplate.hasKey(key)){
                     logger.debug("lock is exist!");
                 }
                 else{
                     //生成锁
                     opts = redisTemplate.opsForValue();
-                    opts.set(lock.getKey(),lock.getValue(),lockExpireTime, TimeUnit.MILLISECONDS);
+                    opts.set(key,value,lockExpireTime, TimeUnit.MILLISECONDS);
                     return true;
                 }
                 //获取锁超时
                 if(System.currentTimeMillis()-startTime>timeout){
-                    logger.debug("lcok is expired!");
+                    logger.debug("lock is expired!");
                     return false;
                 }
 
                 TimeUnit.MILLISECONDS.sleep(tryInterval);
 
-            } while (redisTemplate.hasKey(lock.getKey()));
+            } while (redisTemplate.hasKey(key));
         } catch (InterruptedException e){
             e.printStackTrace();
         }
