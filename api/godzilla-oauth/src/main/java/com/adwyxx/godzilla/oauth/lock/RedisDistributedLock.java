@@ -8,9 +8,6 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoField;
-import java.time.temporal.TemporalField;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,10 +17,10 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2019-09-23 17:09
  * 应用：
  * @Autowired
- * RedisDistributedLock lock;
- * if(lock.tryLock("lock key","lock value"){
+ * RedisDistributedLock com.adwyxx.godzilla.oauth.lock;
+ * if(com.adwyxx.godzilla.oauth.lock.tryLock("com.adwyxx.godzilla.oauth.lock key","com.adwyxx.godzilla.oauth.lock value"){
  * 	do something ...
- * 	lock.unlock("lock");
+ * 	com.adwyxx.godzilla.oauth.lock.unlock("com.adwyxx.godzilla.oauth.lock");
  * }
  */
 @Component
@@ -126,7 +123,7 @@ public class RedisDistributedLock {
             do{
                 //锁存在
                 if(redisTemplate.hasKey(key)){
-                    logger.debug("lock is exist!");
+                    logger.debug("com.adwyxx.godzilla.oauth.lock is exist!");
                 }
                 else{
                     //生成锁
@@ -136,7 +133,7 @@ public class RedisDistributedLock {
                 }
                 //获取锁超时
                 if(System.currentTimeMillis()-startTime>timeout){
-                    logger.debug("lock is expired!");
+                    logger.debug("com.adwyxx.godzilla.oauth.lock is expired!");
                     return false;
                 }
 

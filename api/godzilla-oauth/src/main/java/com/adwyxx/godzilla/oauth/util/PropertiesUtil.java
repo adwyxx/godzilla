@@ -22,7 +22,7 @@ public class PropertiesUtil {
     //初始化，加载配置文件
     static {
         //默认的配置文件名称
-        String fileName = "redis.properties";
+        String fileName = "application.properties";
         properties = new Properties();
         try {
             properties.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName),"UTF-8"));
