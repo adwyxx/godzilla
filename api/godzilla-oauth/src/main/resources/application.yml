@@ -37,9 +37,13 @@ spring:
 #mybatis mapper xml文件路径配置
 mybatis:
   type-aliases-package: com.adwyxx.godzilla.oauth.mapper #mybatis mapper对应的实体包名配置
-  mapper-locations: classpath:com.adwyxx.oauth.mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
 
 #Druid后台用户名密码
 druid:
   username: admin
   password: 123
+
+#log4j 日志
+logging:
+  level: debug

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.adwyxx.godzilla.oauth.mapper.AuthClientMapper">
+  <resultMap id="BaseResultMap" type="com.adwyxx.godzilla.oauth.entity.AuthClient">
+    <id column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="client_name" jdbcType="VARCHAR" property="clientName" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="enabled" jdbcType="BIT" property="enabled" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    client_id, client_name, create_date, enabled
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ums_client
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ums_client
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.adwyxx.godzilla.oauth.entity.AuthClient">
+    insert into ums_client (client_id, client_name, create_date, 
+      enabled)
+    values (#{clientId,jdbcType=VARCHAR}, #{clientName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{enabled,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.adwyxx.godzilla.oauth.entity.AuthClient">
+    insert into ums_client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientName != null">
+        client_name,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.adwyxx.godzilla.oauth.entity.AuthClient">
+    update ums_client
+    <set>
+      <if test="clientName != null">
+        client_name = #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+    </set>
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.adwyxx.godzilla.oauth.entity.AuthClient">
+    update ums_client
+    set client_name = #{clientName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      enabled = #{enabled,jdbcType=BIT}
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </update>
+</mapper>
