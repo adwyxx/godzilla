@@ -1,6 +1,3 @@
-### JWT
-https://www.cnblogs.com/shihaiming/p/9565835.html
-
 ### mybatis-generator 配置详解
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

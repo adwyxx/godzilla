@@ -1,6 +1,5 @@
-package com.adwyxx.godzilla.oauth.lock;
+package com.adwyxx.godzilla.common.lock;
 
-import lombok.extern.log4j.Log4j;
 import org.redisson.api.RLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package com.adwyxx.godzilla.oauth.lock;
+package com.adwyxx.godzilla.common.lock;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.config.Config;
 import org.redisson.config.MasterSlaveServersConfig;
@@ -8,7 +8,6 @@ import org.redisson.config.SentinelServersConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 
 /**

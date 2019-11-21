@@ -1,10 +1,11 @@
 package com.adwyxx.godzilla.oauth;
 
-import com.adwyxx.godzilla.oauth.lock.RedissonManager;
+import com.adwyxx.godzilla.common.lock.RedissonManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={OAuthApplication.class,RedissonManagerTest.class})
+@ComponentScan(value = { "com.adwyxx.godzilla.oauth", "com.adwyxx.godzilla.common"})
 public class RedissonManagerTest { 
 
     @Autowired

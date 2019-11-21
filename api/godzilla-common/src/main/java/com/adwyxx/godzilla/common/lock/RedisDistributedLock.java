@@ -1,4 +1,4 @@
-package com.adwyxx.godzilla.oauth.lock;
+package com.adwyxx.godzilla.common.lock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

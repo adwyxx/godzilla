@@ -1,4 +1,4 @@
-package com.adwyxx.godzilla.oauth.lock;
+package com.adwyxx.godzilla.common.lock;
 
 /**
  * Redis 服务器部署类型：单体服务器或者集群模式
