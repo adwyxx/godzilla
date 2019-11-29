@@ -1,17 +1,20 @@
-package com.adwyxx.godzilla.common.model;
-
-import com.alibaba.fastjson.JSON;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-
-/**
- * 通用RESTfull Api返回值对象
- * @author: Leo.Wang, adwyxx@qq.com
- * @date: 2019/11/21 14:17
- */
+### 项目目录说明
+```
+main
+   +-java
+   |     +-com.adwyxx.godilla.common
+   |         +-annotation
+   |         +-config
+   |         +-handller
+   |         +-interceptor
+   |         +-lock
+   |         +-model
+   |         +-util
+   +-resources
+```
+### 一、统一返回值对象设置
+#### 1. 定义统一返回值对象
+```java
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,18 +42,6 @@ public class ResponseEntity<T> implements Serializable {
         result.setCode(200);
         return result;
     }
-    /**
-     * Http请求成功
-     * @author: Leo.Wang, adwyxx@qq.com
-     * @return {@link ResponseEntity} : 通用RESTfull Api返回值对象
-     */
-    public static ResponseEntity success(){
-        ResponseEntity result =  new ResponseEntity();
-        result.setData(null);
-        result.setStauts(ResponseStatus.SUCCESS);
-        result.setCode(200);
-        return result;
-    }
 
     /**
      * Http 请求失败
@@ -72,3 +63,14 @@ public class ResponseEntity<T> implements Serializable {
         return JSON.toJSONString(this);
     }
 }
+``` 
+#### 2. 设置Response返回值拦截
+- 通过Filter设置统一返回值类型
+- 使用@RestControllerAdvice (或@ControllerAdvice)设置统一返回值类型
+https://segmentfault.com/a/1190000020517960?utm_source=tag-newest
+- 实现HandlerMethodReturnValueHandler接口的方式设置统一返回值类型
+
+<img src="https://ask.qcloudimg.com/http-save/2308184/3tams6kino.png?imageView2/2/w/1620"/>
+
+### 二、统一异常处理
+参考：https://zhuanlan.zhihu.com/p/38196945
