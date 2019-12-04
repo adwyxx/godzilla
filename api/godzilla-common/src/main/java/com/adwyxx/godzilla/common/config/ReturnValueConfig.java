@@ -3,6 +3,7 @@ package com.adwyxx.godzilla.common.config;
 import com.adwyxx.godzilla.common.handler.ResultWarpReturnValueHandler;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
@@ -35,5 +36,10 @@ public class ReturnValueConfig implements InitializingBean {
             }
         }
         requestMappingHandlerAdapter.setReturnValueHandlers(list);
+    }
+
+    @Bean
+    public RequestMappingHandlerAdapter getRequestMappingHandlerAdapter(){
+        return  new RequestMappingHandlerAdapter();
     }
 }
